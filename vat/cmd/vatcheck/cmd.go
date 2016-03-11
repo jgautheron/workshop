@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	. "github.com/NexwayGroup/nx-vatcheck/config"
 	log "github.com/Sirupsen/logrus"
 	"github.com/codegangsta/cli"
+	. "github.com/jgautheron/workshop/vat/config"
 )
 
 var (

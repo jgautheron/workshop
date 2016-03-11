@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	. "github.com/NexwayGroup/nx-vatcheck/config"
+	. "github.com/jgautheron/workshop/vat/config"
 	log "github.com/Sirupsen/logrus"
 	"github.com/gocraft/health"
 	"github.com/nbio/httpcontext"

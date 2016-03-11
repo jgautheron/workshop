@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/NexwayGroup/nx-vatcheck"
+	"github.com/jgautheron/workshop/vat"
 )
 
 var numbers = []struct {

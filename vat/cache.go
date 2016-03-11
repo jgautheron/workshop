@@ -1,7 +1,7 @@
 package vatcheck
 
 import (
-	. "github.com/NexwayGroup/nx-vatcheck/config"
+	. "github.com/jgautheron/workshop/vat/config"
 	"github.com/wunderlist/ttlcache"
 )
 

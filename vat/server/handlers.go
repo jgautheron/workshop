@@ -3,7 +3,7 @@ package server
 import (
 	"net/http"
 
-	"github.com/NexwayGroup/nx-vatcheck"
+	"github.com/jgautheron/workshop/vat"
 	"github.com/mattes/vat"
 	"github.com/nbio/hitch"
 )

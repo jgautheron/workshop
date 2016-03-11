@@ -1,8 +1,8 @@
 package main
 
 import (
-	. "github.com/NexwayGroup/nx-vatcheck/config"
-	"github.com/NexwayGroup/nx-vatcheck/server"
+	. "github.com/jgautheron/workshop/vat/config"
+	"github.com/jgautheron/workshop/vat/server"
 	"github.com/codegangsta/cli"
 )
 

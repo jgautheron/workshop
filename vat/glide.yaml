@@ -1,4 +1,4 @@
-package: github.com/NexwayGroup/nx-vatcheck
+package: github.com/jgautheron/workshop/vat
 import:
 - package: github.com/NexwayGroup/envconfig
 - package: github.com/Sirupsen/logrus
