@@ -42,8 +42,6 @@ func IsValid(id string) (bool, error) {
 		return false, ErrInvalidFormat
 	}
 
-	lgr.Infoln(cache().Get(id))
-
 	if value, exists := cache().Get(id); exists {
 		lgr.Debug("Cache HIT")
 		return strconv.ParseBool(value)

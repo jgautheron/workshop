@@ -3,9 +3,11 @@ package vatcheck
 import (
 	"errors"
 	"io/ioutil"
-	"log"
 	"testing"
+	"time"
 
+	log "github.com/Sirupsen/logrus"
+	. "github.com/jgautheron/workshop/vat/config"
 	"github.com/mattes/vat"
 )
 
@@ -69,5 +71,44 @@ func TestCircuitTripped(t *testing.T) {
 
 	if _, err := IsValid(validNumber); err != ErrCircuitTripped {
 		t.Error("The wrong error has been returned")
+	}
+}
+
+func TestIsCached(t *testing.T) {
+	// Re-initialise the circuit breaker
+	initCircuitBreaker()
+
+	// Set a TTL for the cache
+	ch = nil
+	Config.CacheDuration = time.Duration(2) * time.Minute
+
+	// Use another VAT number for testing since the other one is cached
+	validNumber := "FR33440953859"
+
+	if _, exists := cache().Get(validNumber); exists {
+		t.Error("The number %s shouldn't be in cache", validNumber)
+	}
+
+	c.checkMethod = func(id string) (*vat.VATresponse, error) {
+		return &vat.VATresponse{Valid: true}, nil
+	}
+
+	if isValid, _ := IsValid(validNumber); !isValid {
+		t.Error("The number %s should be valid", validNumber)
+	}
+	if _, exists := cache().Get(validNumber); !exists {
+		t.Error("The number %s should be in cache", validNumber)
+	}
+}
+
+func BenchmarkIsValid(b *testing.B) {
+	ch = nil
+	Config.CacheDuration = time.Duration(2) * time.Minute
+
+	c.checkMethod = func(id string) (*vat.VATresponse, error) {
+		return &vat.VATresponse{Valid: true}, nil
+	}
+	for n := 0; n < b.N; n++ {
+		_, _ = IsValid(validNumber)
 	}
 }

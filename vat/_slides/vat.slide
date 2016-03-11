@@ -73,18 +73,18 @@ Learn properly the standard library.
 It's immediately clear what the service is about. The packages are there for support.
 
 * Microservice Best Practices
-*1.*No*configuration*file*
-Files are a liability: they pollute the filesystem, complicate the deployment.
 
-*2.*No*concept*of*environment*per*se* 
-The injected configuration defines the environment.
-Keep the service focused on the domain model.
+1. *Single*Business*Capability*
+Keep it focused.
 
-*3.*Resilience*
+2. *Bounded-context*
+Avoid liabilities and moving stones.
+
+3. *Resilience*
 Make it damn hard to kill. Think cockroach.
 
-*4.*Distribution*
-Scale from 1 to infinity seamlessly.
+4. *Distribution*
+Scale from 1 to infinity effortlessly.
 
 .image https://pbs.twimg.com/profile_images/592837647577587714/eNMItpUG.png _ 150
 
