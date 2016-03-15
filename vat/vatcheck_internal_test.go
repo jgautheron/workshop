@@ -26,12 +26,16 @@ func mockCheckVAT(id string) (*vat.VATresponse, error) {
 }
 
 func TestFormatInvalid(t *testing.T) {
+	t.Parallel()
+
 	if _, err := IsValid("fooo"); err != ErrInvalidFormat {
 		t.Error("Format should be invalid")
 	}
 }
 
 func TestIsValid(t *testing.T) {
+	t.Parallel()
+
 	c.checkMethod = func(id string) (*vat.VATresponse, error) {
 		return &vat.VATresponse{Valid: true}, nil
 	}
@@ -42,6 +46,8 @@ func TestIsValid(t *testing.T) {
 }
 
 func TestInvalid(t *testing.T) {
+	t.Parallel()
+
 	c.checkMethod = func(id string) (*vat.VATresponse, error) {
 		return nil, errMock
 	}

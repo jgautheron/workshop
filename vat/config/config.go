@@ -1,3 +1,5 @@
+// Package config retrieves the service configuration through environment variables.
+// The package is included using the infamous "dot import" to spare us the stuttering.
 package config
 
 import (

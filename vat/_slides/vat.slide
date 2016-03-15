@@ -7,10 +7,9 @@ Jonathan Gautheron
 
 Past and current works:
 
-- [[https://github.com/exago][exago]]
-- [[https://github.com/jgautheron/gocha][gocha]]
-- [[https://github.com/jgautheron/goconst][goconst]]
-- [[https://github.com/jgautheron/usedexports][usedexports]]
+- [[https://github.com/exago][exago]] — Code quality as a service.
+- [[https://github.com/jgautheron/gocha][gocha]] — Git-based changelog generator.
+- [[https://github.com/jgautheron/goconst][goconst]], [[https://github.com/jgautheron/usedexports][usedexports]], [[https://github.com/jgautheron/gogetimports][gogetimports]] — Code quality tools.
 
 .image http://golang.org/doc/gopher/gopherbw.png 200 _
 
@@ -69,9 +68,6 @@ Forget about the good old @tag.
 Stay away from frameworks as much as possible, until it makes sense.
 Learn properly the standard library.
 
-5. *Domain*model*at*the*project*root*
-It's immediately clear what the service is about. The packages are there for support.
-
 * Microservice Best Practices
 
 1. *Single*Business*Capability*
@@ -80,11 +76,14 @@ Keep it focused.
 2. *Bounded-context*
 Avoid liabilities and moving stones.
 
-3. *Resilience*
+3. *Distribution*
+Scale from 1 to infinity effortlessly.
+
+4. *Resilience*
 Make it damn hard to kill. Think cockroach.
 
-4. *Distribution*
-Scale from 1 to infinity effortlessly.
+5. *Polyglot*
+Use the best tool for the job.
 
 .image https://pbs.twimg.com/profile_images/592837647577587714/eNMItpUG.png _ 150
 
