@@ -17,7 +17,7 @@ build: LDFLAGS += -X 'main.buildTag=$(TAG)'
 build: LDFLAGS += -X 'main.buildDate=$(shell date -u '+%Y/%m/%d %H:%M:%S')'
 build:
 	@echo "Building $(BINARY) statically"
-	cd cmd/vatcheck && GOOS=darwin CGO_ENABLED=0 $(GO) build -a -ldflags "$(LDFLAGS)" -v -o $(BINARY)
+	cd cmd/vatcheck && GOOS=linux CGO_ENABLED=0 $(GO) build -a -ldflags "$(LDFLAGS)" -v -o $(BINARY)
 
 # Create Docker image and make sure code is fmt'ed, checked and tested before we build
 image: | check build
