@@ -1,7 +1,7 @@
 FROM tianon/true
 
 # Copy binary into image
-COPY ./nx-vatcheck /
+COPY ./cmd/vatcheck/nx-vatcheck /
 
 # Default values
 ENV HTTP_BIND 0.0.0.0

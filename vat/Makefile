@@ -6,7 +6,7 @@ BINARY := nx-vatcheck
 
 # Go stuff
 PKG := ./...
-LDFLAGS :=
+LDFLAGS := -s -w
 
 TAG := $(shell git describe --tags `git rev-list --tags --max-count=1`)
 
@@ -17,7 +17,7 @@ build: LDFLAGS += -X 'main.buildTag=$(TAG)'
 build: LDFLAGS += -X 'main.buildDate=$(shell date -u '+%Y/%m/%d %H:%M:%S')'
 build:
 	@echo "Building $(BINARY) statically"
-	GOOS=linux CGO_ENABLED=0 $(GO) build -a -ldflags "$(LDFLAGS)" -v -i -o $(BINARY)
+	cd cmd/vatcheck && GOOS=darwin CGO_ENABLED=0 $(GO) build -a -ldflags "$(LDFLAGS)" -v -o $(BINARY)
 
 # Create Docker image and make sure code is fmt'ed, checked and tested before we build
 image: | check build
